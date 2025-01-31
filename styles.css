@@ -1,0 +1,182 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+}
+
+.background-tech {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.floating-button {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+    transition: all 0.3s;
+}
+
+.floating-button i {
+    font-size: 24px;
+}
+
+.floating-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.floating-menu .menu-item {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.floating-menu .menu-item:hover {
+    transform: scale(1.1);
+}
+
+.floating-menu.active {
+    display: flex;
+}
+
+.welcome-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.welcome-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.welcome-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .welcome-cta {
+        flex-direction: column;
+    }
+    
+    .welcome-cta .btn {
+        margin-bottom: 1rem;
+    }
+}
+
+.precios {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.precios .card {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+}
+
+.servicios {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.servicios .card {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+}
+
+.contacto .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+}
+
+.contact-buttons .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+}
+
+.contact-buttons .btn:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-buttons {
+    gap: 0.5rem !important;
+}
+
+.small-footer {
+    font-size: 0.75rem;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+footer {
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
