@@ -61,13 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const userInput = document.getElementById('userInput');
   const sendMessageBtn = document.getElementById('sendMessage');
 
-  // AI Responses
-  const aiResponses = {
-    precios: "Nuestros precios son accesibles: Instalación de SO: $50, Eliminación de Cuentas: $30, Diagnóstico Técnico: $25.",
-    servicios: "Ofrecemos servicios como: Instalación de Sistemas Operativos, Eliminación de Cuentas, Diagnóstico Técnico Profesional y Recuperación de Datos.",
-    'metodo-pago': "Aceptamos Transferencia Bancaria, Pago en Efectivo y Saldo Móvil para tu conveniencia.",
-    'quien-te-creo': "Me creó Rodolfo Ramirez Jara. Contacto: +5356639178, correo: tecnoadguard@gmail.com, administrador de TecnoAdGuard."
+  const AI_CONFIG = {
+    welcomeMessage: 'Bienvenido, ¿en qué puedo ayudarte?',
+    responses: {
+      'precio': 'Nuestros precios son accesibles: Instalación de SO: $50, Eliminación de Cuentas: $30, Diagnóstico Técnico: $25.',
+      'servicio': 'Ofrecemos servicios como: Instalación de Sistemas Operativos, Eliminación de Cuentas, Diagnóstico Técnico Profesional y Recuperación de Datos.',
+      'pago': 'Aceptamos Transferencia Bancaria, Pago en Efectivo y Saldo Móvil para tu conveniencia.',
+      'quién te creó': 'Me creó Rodolfo Ramirez Jara. Contacto: +5356639178, correo: tecnoadguard@gmail.com, administrador de TecnoAdGuard.',
+      'quien te creo': 'Me creó Rodolfo Ramirez Jara. Contacto: +5356639178, correo: tecnoadguard@gmail.com, administrador de TecnoAdGuard.',
+    },
+    defaultResponse: 'Lo siento, solo puedo responder sobre precios, servicios, métodos de pago o quién me creó.',
   };
+
+  // Add initial welcome message
+  function initChat() {
+    addMessage(AI_CONFIG.welcomeMessage, 'ai');
+  }
 
   // Typing effect function
   function typeWriter(element, text, speed = 30) {
@@ -102,35 +111,30 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Handle AI chat trigger
-  document.querySelector('.ai-chat-trigger').addEventListener('click', (e) => {
-    e.preventDefault();
-    smoothScroll('ia-chat');
-    floatingMenu.classList.remove('active');
-    floatingButton.classList.remove('menu-active');
-  });
+  // Determine AI response
+  function getAIResponse(userMessage) {
+    userMessage = userMessage.trim().toLowerCase();
+    
+    for (let [key, response] of Object.entries(AI_CONFIG.responses)) {
+      if (userMessage.includes(key)) {
+        return response;
+      }
+    }
+    
+    return AI_CONFIG.defaultResponse;
+  }
 
   // Send message functionality
   sendMessageBtn.addEventListener('click', () => {
-    const userMessage = userInput.value.trim().toLowerCase();
+    const userMessage = userInput.value.trim();
     if (userMessage) {
       // Add user message
       addMessage(userMessage, 'user');
       userInput.value = '';
 
-      // Determine AI response
-      let aiResponse = "Lo siento, solo puedo responder sobre precios, servicios, métodos de pago o quién me creó.";
+      // Get and add AI response
+      const aiResponse = getAIResponse(userMessage);
       
-      if (userMessage.includes('precio')) {
-        aiResponse = aiResponses.precios;
-      } else if (userMessage.includes('servicio')) {
-        aiResponse = aiResponses.servicios;
-      } else if (userMessage.includes('pago')) {
-        aiResponse = aiResponses['metodo-pago'];
-      } else if (userMessage.includes('quién te creó') || userMessage.includes('quien te creo')) {
-        aiResponse = aiResponses['quien-te-creo'];
-      }
-
       // Add AI response after a short delay
       setTimeout(() => {
         addMessage(aiResponse, 'ai');
@@ -143,5 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Enter') {
       sendMessageBtn.click();
     }
+  });
+
+  // Initialize chat with welcome message
+  initChat();
+
+  // Handle AI chat trigger
+  document.querySelector('.ai-chat-trigger').addEventListener('click', (e) => {
+    e.preventDefault();
+    smoothScroll('ia-chat');
+    floatingMenu.classList.remove('active');
+    floatingButton.classList.remove('menu-active');
   });
 });
