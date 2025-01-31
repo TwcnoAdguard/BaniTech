@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const AI_CONFIG = {
     welcomeMessage: 'Bienvenido, ¿en qué puedo ayudarte?',
     responses: {
-      'precio': 'Nuestros precios son accesibles: Instalación de sistema Windows: $100cup, Eliminación de Cuentas Google : $1000cup o 600cup depende el disposivo, Instalación de antivirus y actualización: $300cup.',
+      'precio': 'Nuestros precios son accesibles: Instalación de sistema Windows: $1000cup, Eliminación de Cuentas Google : $1000cup o 600cup depende el disposivo, Instalación de antivirus y actualización: $300cup.',
       'servicio': 'Ofrecemos servicios como: Instalación de Sistemas Operativos, Eliminación de Cuentas Google , Instalación  antivirus y Recuperación de contraseñas.',
       'pago': 'Aceptamos Transferencia Bancaria, Pago en Efectivo y Saldo Móvil para tu conveniencia.',
       'quién te creó': 'Me creó Rodolfo Ramirez Jara. Contacto: +5356639178, correo: tecnoadguard@gmail.com, administrador de TecnoAdGuard.',
