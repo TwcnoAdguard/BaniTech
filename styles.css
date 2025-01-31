@@ -44,10 +44,45 @@ body, html {
     cursor: pointer;
     z-index: 1100;
     transition: all 0.3s;
+    position: fixed; 
 }
 
 .floating-button i {
     font-size: 24px;
+}
+
+.floating-button-hint {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.hint-arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #007bff;
+    margin-bottom: 5px;
+}
+
+.hint-text {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.floating-button.menu-active .floating-button-hint {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .floating-menu {
@@ -179,4 +214,71 @@ footer {
     bottom: 0;
     width: 100%;
     z-index: 1000;
+}
+
+.payment-methods .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.payment-methods .card-body ul li {
+    margin-bottom: 10px;
+}
+
+.payment-methods .card-body ul li i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.ai-chat-modal .modal-content {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.chat-message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-message.user {
+    background-color: rgba(0, 123, 255, 0.2);
+    text-align: right;
+}
+
+.chat-message.ai {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-align: left;
+}
+
+.typing-indicator {
+    display: inline-block;
+    animation: typing 1.4s infinite;
+}
+
+@keyframes typing {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.ia-chat .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 600px;
+}
+
+.ia-chat .chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
 }
