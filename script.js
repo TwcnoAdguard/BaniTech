@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const AI_CONFIG = {
     welcomeMessage: 'Bienvenido, ¿en qué puedo ayudarte?',
     responses: {
-      'precio': 'Nuestros precios son accesibles: Instalación de sistema Windows + Programas : $1000cup, Eliminación de Cuentas Google: entre $600 a 1000cup Depende el Diapositivo y Dificiltad, Eliminación contraseñas en celular Perdera Todo $300cup si tiene cuenta De Google 1000cup , Recuperacion de contraseña en windows sin perder nada $400cup. ',
+      'precio': 'Nuestros precios son accesibles: Instalación de sistema Windows + Programas : $1000cup, Eliminación de Cuentas Google: entre $600 a 1000cup Depende el Diapositivo y Dificiltad, Eliminación contraseñas en celular Perdera Todo $300cup si tiene cuenta De Google 1000cup , Recuperacion de contraseña en windows sin perder nada $400cup , Copia de audiovisuales a a $2,5 cup por capitulo Si es algo x encargo se cobra a $7cup el GB Películas Encargadas o Guardas a 5cup x película Realitis shows a $3cup x capitulo. ',
       'servicio': 'Ofrecemos servicios como: Instalación de Sistemas Operativos, Eliminación de Cuentas Google , Instalación  antivirus y Recuperación de contraseñas tiene cuenta Google 1000cup , Recuperacion de contraseña en windows sin perder nada $400cup. ',
       'pago': 'Aceptamos Transferencia Bancaria, Pago en Efectivo y Saldo Móvil para tu conveniencia.',
       'quién te creó': 'Me creó Rodolfo Ramirez Jara. Contacto: +5356639178, correo: tecnoadguard@gmail.com, administrador de TecnoAdGuard.',
